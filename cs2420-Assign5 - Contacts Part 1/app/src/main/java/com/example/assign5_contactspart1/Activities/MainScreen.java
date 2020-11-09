@@ -1,5 +1,6 @@
 package com.example.assign5_contactspart1.Activities;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.widget.LinearLayout;
@@ -29,6 +30,15 @@ public class MainScreen extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         database = new Wrapper(this, "contacts-database");
+        setupScreen();
+        newContact.setOnClickListener(view -> {
+            Intent intent = new Intent(MainScreen.this, NewContact.class);
+            startActivity(intent);
+        });
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    private void setupScreen() {
         mainLayout = new LinearLayout(this);
         mainLayout.setOrientation(LinearLayout.VERTICAL);
         newContact = new Button(this, "New Contact");
