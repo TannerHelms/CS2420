@@ -16,6 +16,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".Activities.NewContact" />
+        <activity android:name=".Activities.ViewContact" />
     </application>
 
 </manifest>

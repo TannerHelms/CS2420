@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Build;
 
 import androidx.annotation.RequiresApi;
+import androidx.room.Query;
 import androidx.room.Room;
 
 import java.util.ArrayList;
@@ -17,7 +18,6 @@ public class Wrapper {
         this.database = Room.databaseBuilder(context.getApplicationContext(), Database.class, databaseName).build();
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.N)
     public List<Contacts> SelectAll() {
         List<Contacts> contacts = new ArrayList<>();
         contacts.addAll(database.getContactsDao().SelectAll());
@@ -29,5 +29,13 @@ public class Wrapper {
             database.getContactsDao().Insert(contact);
             System.out.println("successfully inserted value");
         }).start();
+    }
+
+    public Contacts GetID(int id) {
+        return database.getContactsDao().FindById(id);
+    }
+
+    public void Delete(Contacts contacts) {
+        database.getContactsDao().Delete(contacts);
     }
 }

@@ -1,7 +1,7 @@
 package com.example.assign5_contactspart1.Activities;
 
 import android.content.Intent;
-import android.content.pm.LabeledIntent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.LinearLayout;
 
@@ -9,7 +9,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.assign5_contactspart1.Database.Contacts;
-import com.example.assign5_contactspart1.Database.Database;
 import com.example.assign5_contactspart1.Database.Wrapper;
 import com.example.assign5_contactspart1.Utils.Button;
 import com.example.assign5_contactspart1.Utils.EditText;
@@ -41,6 +40,7 @@ public class NewContact extends AppCompatActivity {
     private void setupScreen() {
         mainLayout = new LinearLayout(this);
         mainLayout.setOrientation(LinearLayout.VERTICAL);
+        mainLayout.setBackgroundColor(Color.CYAN);
         for (String field : fields) {
             TextView textView = new TextView(this, field);
             mainLayout.addView(textView);
