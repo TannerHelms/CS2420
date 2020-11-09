@@ -1,0 +1,2 @@
+include ':app'
+rootProject.name = "Assign5 - Contacts Part 1"
