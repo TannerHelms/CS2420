@@ -27,7 +27,6 @@ public class Wrapper {
     public void Insert(Contacts contact) {
         new Thread(() -> {
             database.getContactsDao().Insert(contact);
-            System.out.println("successfully inserted value");
         }).start();
     }
 

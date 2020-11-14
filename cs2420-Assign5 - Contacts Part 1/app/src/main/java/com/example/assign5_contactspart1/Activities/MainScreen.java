@@ -16,6 +16,7 @@ import com.example.assign5_contactspart1.Utils.Button;
 import com.example.assign5_contactspart1.Utils.TextView;
 
 import android.graphics.Color;
+import android.widget.ScrollView;
 
 
 import java.util.List;
@@ -31,6 +32,9 @@ public class MainScreen extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         database = new Wrapper(this, "contacts-database");
+        for (int i = 0; i < 15; i++) {
+            database.Insert(new Contacts("tanner", "2343", "asdflkasjdf"));
+        }
         setupScreen();
         newContact.setOnClickListener(view -> {
             Intent intent = new Intent(MainScreen.this, NewContact.class);
@@ -47,7 +51,9 @@ public class MainScreen extends AppCompatActivity {
         contactLayout = new LinearLayout(this);
         contactLayout.setOrientation(LinearLayout.VERTICAL);
         mainLayout.addView(contactLayout);
-        setContentView(mainLayout);
+        ScrollView scrollView = new ScrollView(this);
+        scrollView.addView(mainLayout);
+        setContentView(scrollView);
         renderScreen();
     }
 
